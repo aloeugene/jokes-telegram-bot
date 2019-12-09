@@ -23,7 +23,7 @@ const displayJoke = (category, msg) => {
       jokeInfo && jokeInfo.type === 'single' ?
         bot.sendMessage(
           msg.chat.id,
-          `<em>Here's your joke:</em> \n\n${jokeInfo.joke}`,
+          `<em>Here's your ${category} joke:</em> \n\n${jokeInfo.joke}`,
           { parse_mode: "HTML" }
         ) :
         bot.sendMessage(
