@@ -14,8 +14,7 @@ Have fun and don't forget to laugh! ✌🏼
 module.exports = {
   botToken: process.env.BOT_TOKEN,
   botPort: process.env.PORT,
-  botURL: 'https://api.telegram.org/bot',
-  botHerokuURL: 'https://jokes-tg-bot.herokuapp.com/',
+  botHerokuURL: process.env.BOT_HEROKU_URL || 'https://jokes-tg-bot.herokuapp.com',
 
   introduction,
 
