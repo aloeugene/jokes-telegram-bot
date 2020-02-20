@@ -2,6 +2,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const { fetchJoke } = require('./helpers/jokeAPI');
 const {
   botToken,
+  botPort,
+  botHerokuURL,
   programming,
   dark,
   miscellaneous,
@@ -9,7 +11,15 @@ const {
   introduction
 } = require('./constants');
 
-const bot = new TelegramBot(botToken, { polling: true });
+// const bot = new TelegramBot(botToken, { polling: true });
+const botOptions = {
+  webHook: {
+    port: botPort,
+  }
+}
+
+const bot = new TelegramBot(botToken, botOptions);
+bot.setWebHook(`${botHerokuURL}/bot${botToken}`);
 
 const checkWordPresence = (word, msg) => msg.text.toLowerCase().includes(word);
 
